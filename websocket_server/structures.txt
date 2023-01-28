@@ -1,0 +1,21 @@
+wqe {
+    opcode
+    data_count
+    data
+}
+
+register {
+    type
+    id
+}
+
+avl_data {
+    dev_id
+    timestamp
+    priority
+    lng
+    lat
+    alt
+    angle
+    speed
+}

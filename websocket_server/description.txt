@@ -1,0 +1,47 @@
+/* PYTHON PARSER */
+DB connect
+Werbsocket connect
+listen for incomming packets
+device imei received
+check if device data is acceptable if yes then
+packets received -> parse -> insert into database
+send received packet to Werbsocket
+
+/* WEBSOCKET FOR MANAGEMENT AND DATA TRANSFER */
+parser connection received
+client connected
+send last record from DB to client
+
+/* CLIENT */
+connect to websocket
+
+/* MANAGEMENT PORTAL */
+user registration
+device registration
+
+/* TRACKING DASHBOARD */
+moving and stop marker
+show last data date and time with vehicle number
+follow
+engine on/off
+
+/* TABLES */
+user details
+    id
+    first name
+    last name
+    username
+    password
+    email
+    phone number
+    address
+    account_status
+
+device details
+    id
+    name
+    imei
+    sim_number
+    vehicle number
+    vehicle type
+    username
