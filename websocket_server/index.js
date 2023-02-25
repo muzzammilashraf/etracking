@@ -76,16 +76,20 @@ const notify_client_avl_data = (recv_mesg) => {
 const execute_op = (ws, wqe) => {
     switch(wqe.opcode) {
         case 'register':
-            ws.id = [];
+            if(!ws.hasOwnProperty("id")) {
+                ws.id = [];
+            }
             for(let i = 0; i < wqe.data_count; i++) {
                 var register = JSON.parse(wqe.data[i]);
                 ws.type = register.type;
-                ws.id.push(register.id);
-                console.log("Client registered with id: " + register.id);
-                switch(register.type) {
-                    case 'client':
-                        register_client(ws, register.id);
-                        break;
+                if(!ws.id.includes(register.id)) {
+                    ws.id.push(register.id);
+                    console.log("Client registered with id: " + register.id);
+                    switch(register.type) {
+                        case 'client':
+                            register_client(ws, register.id);
+                            break;
+                    }
                 }
             }
             break;
